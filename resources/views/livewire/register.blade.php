@@ -1,55 +1,75 @@
-<div>
-    <main class="login-form">
-    <div class="cotainer">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Register</div>
-                    <div class="card-body">
+<!-- BACKGROUND-IMAGE -->
+<div class="">
 
-                        <form wire:submit.prevent='submit'>
-                            @csrf
-                            <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="name" class="form-control" wire:model.lazy='name' name="name" required autofocus>
-                                    @if ($errors->has('name'))
-                                    <span class="text-danger">{{ $errors->first('name') }}</span>
-                                    @endif
-                                </div>
-                            </div>
+    <!-- GLOABAL LOADER -->
+    <div id="global-loader">
+        <img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">
+    </div>
+    <!-- /GLOABAL LOADER -->
 
-                            <div class="form-group row">
-                                <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="email_address" class="form-control" wire:model.lazy='email'" name="email" required autofocus>
-                                    @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                    @endif
-                                </div>
-                            </div>
+    <!-- PAGE -->
+    <div class="page">
+        <div class="">
+            <!-- Theme-Layout -->
 
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-                                <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" wire:model.lazy='password' name="password" required>
-                                    @if ($errors->has('password'))
-                                    <span class="text-danger">{{ $errors->first('password') }}</span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </form>
-
-                    </div>
+            <!-- CONTAINER OPEN -->
+            <div class="col col-login mx-auto mt-7">
+                <div class="text-center">
+                    <a href="#"><img src="{{asset('assets/images/brand/logo-white.png')}}" class="header-brand-img m-0"
+                            alt=""></a>
                 </div>
             </div>
+            <div class="container-login100">
+                <div class="wrap-login100 p-6">
+                    <form class="login100-form validate-form" wire:submit.prevent='submit'>
+                        <span class="login100-form-title">
+                            Registration
+                        </span>
+                        <div class="wrap-input100 validate-input input-group"
+                            data-bs-validate="Valid email is required: ex@abc.xyz">
+                            <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                <i class="mdi mdi-account" aria-hidden="true"></i>
+                            </a>
+                            <input class="input100 border-start-0 ms-0 form-control" autocomplete="on" type="text"
+                                wire:model.lazy='name' placeholder="User name">
+                        </div>
+                        <div class="wrap-input100 validate-input input-group"
+                            data-bs-validate="Valid email is required: ex@abc.xyz">
+                            <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                <i class="zmdi zmdi-email" aria-hidden="true"></i>
+                            </a>
+                            <input class="input100 border-start-0 ms-0 form-control" autocomplete="on" type="email"
+                                wire:model.lazy='email' placeholder="Email">
+                        </div>
+                        <div class="wrap-input100 validate-input input-group" id="Password-toggle">
+                            <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                <i class="zmdi zmdi-eye" aria-hidden="true"></i>
+                            </a>
+                            <input class="input100 border-start-0 ms-0 form-control" type="password"
+                                wire:model.lazy='password' placeholder="Password">
+                        </div>
+                        <label class="custom-control custom-checkbox mt-4">
+                            <input type="checkbox" class="custom-control-input">
+                            <span class="custom-control-label">Agree the <a href="terms.html">terms and
+                                    policy</a></span>
+                        </label>
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="login100-form-btn btn-primary">
+                                Register
+                            </button>
+                        </div>
+                        <div class="text-center pt-3">
+                            <p class="text-dark mb-0 d-inline-flex">Already have account ?<a href="{{route('login')}}"
+                                    class="text-primary ms-1">Sign In</a></p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <!-- CONTAINER CLOSED -->
         </div>
     </div>
-</main>
+    <!-- END PAGE -->
+
 </div>
+<!-- BACKGROUND-IMAGE CLOSED -->
