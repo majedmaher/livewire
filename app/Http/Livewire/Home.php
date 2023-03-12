@@ -62,6 +62,6 @@ class Home extends Component
     public function render()
     {
         // return dd($this->user);
-        return view('livewire.home')->with('user', $this->user)->layout('layout');
+        return view('livewire.home')->with('user', $this->user)->layout('layouts.dashboard');
     }
 }

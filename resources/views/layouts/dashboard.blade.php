@@ -13,7 +13,7 @@
         content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/brand/favicon.ico')}}">
 
     <!-- TITLE -->
     <title>Sash – Bootstrap 5 Admin & Dashboard Template</title>
@@ -35,18 +35,31 @@
     <link href="{{asset('assets/switcher/demo.css')}}" rel="stylesheet">
 
     <livewire:styles />
-
 </head>
 
-<body class="app sidebar-mini ltr login-img">
+<body class="app sidebar-mini ltr light-mode">
 
-    <!-- GLOABAL LOADER -->
+    <!-- GLOBAL-LOADER -->
     <div id="global-loader">
-        <img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">
+        <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
     </div>
-    <!-- /GLOABAL LOADER -->
+    <!-- /GLOBAL-LOADER -->
 
-    {{ isset($slot) ? $slot : null }}
+    <!-- PAGE -->
+    <div class="page">
+        <div class="page-main">
+
+            <livewire:header />
+            <livewire:sidebar />
+            {{ isset($slot) ? $slot : null }}
+            <livewire:footer />
+
+        </div>
+
+    </div>
+
+    <!-- BACK-TO-TOP -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
     <!-- JQUERY JS -->
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>
@@ -55,17 +68,36 @@
     <script src="{{asset('assets/plugins/bootstrap/js/popper.min.js')}}"></script>
     <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
 
+    <!-- INPUT MASK JS-->
+    <script src="{{asset('assets/plugins/input-mask/jquery.mask.min.js')}}"></script>
+
+    <!-- TypeHead js -->
+    <script src="{{asset('assets/plugins/bootstrap5-typehead/autocomplete.js')}}"></script>
+    <script src="{{asset('assets/js/typehead.js')}}"></script>
+
     <!-- SHOW PASSWORD JS -->
     <script src="{{asset('assets/js/show-password.min.js')}}"></script>
 
-    <!-- GENERATE OTP JS -->
-    <script src="{{asset('assets/js/generate-otp.js')}}"></script>
+    <!-- INTERNAL SELECT2 JS -->
+    <script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
+    <script src="{{asset('assets/js/select2.js')}}"></script>
 
     <!-- Perfect SCROLLBAR JS-->
     <script src="{{asset('assets/plugins/p-scroll/perfect-scrollbar.js')}}"></script>
+    <script src="{{asset('assets/plugins/p-scroll/pscroll.js')}}"></script>
+    <script src="{{asset('assets/plugins/p-scroll/pscroll-1.js')}}"></script>
+
+    <!-- SIDE-MENU JS -->
+    <script src="{{asset('assets/plugins/sidemenu/sidemenu.js')}}"></script>
+
+    <!-- SIDEBAR JS -->
+    <script src="{{asset('assets/plugins/sidebar/sidebar.js')}}"></script>
 
     <!-- Color Theme js -->
     <script src="{{asset('assets/js/themeColors.js')}}"></script>
+
+    <!-- Sticky js -->
+    <script src="{{asset('assets/js/sticky.js')}}"></script>
 
     <!-- CUSTOM JS -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
@@ -77,7 +109,6 @@
     <script src="{{asset('assets/switcher/js/switcher.js')}}"></script>
 
     <livewire:scripts />
-
 </body>
 
 </html>
