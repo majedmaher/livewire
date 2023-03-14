@@ -77,6 +77,10 @@
     <script src="{{asset('assets/switcher/js/switcher.js')}}"></script>
 
     <livewire:scripts />
+    ...
+    @livewireScripts
+
+</body>
 
 </body>
 

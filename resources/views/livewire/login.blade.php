@@ -1,5 +1,4 @@
-<!-- BACKGROUND-IMAGE -->
-<div class="">
+<div>
 
     <!-- PAGE -->
     <div class="page">
@@ -44,6 +43,9 @@
                                             <p class="mb-0"><a href="#" class="text-primary ms-1">Forgot Password?</a>
                                             </p>
                                         </div>
+                                        {{-- @if (session()->has('error_message'))
+                                        <label style="color: #ff0000">{{session('error_message')}}</label>
+                                        @endif --}}
                                         <div class="container-login100-form-btn">
                                             <button type="submit" class="login100-form-btn btn-primary">
                                                 Login
