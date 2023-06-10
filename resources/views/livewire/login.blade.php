@@ -1,5 +1,4 @@
 <div>
-
     <!-- PAGE -->
     <div class="page">
         <div class="">
@@ -25,27 +24,34 @@
                                     <div class="tab-pane active" id="tab5">
                                         <div class="wrap-input100 validate-input input-group"
                                             data-bs-validate="Valid email is required: ex@abc.xyz">
-                                            <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                            <a class="input-group-text bg-white text-muted">
                                                 <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
                                             </a>
-                                            <input class="input100 border-start-0 form-control ms-0" type="email"
-                                                wire:model.lazy='email' name="email" placeholder="Email">
+                                            <input
+                                                class="input100 border-start-0 @error('email') is-invalid @enderror form-control ms-0"
+                                                type="email" wire:model.defer='email' name="email" placeholder="Email">
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert"><strong>{{ $message
+                                                    }}</strong></span>
+                                            @enderror
                                         </div>
                                         <div class="wrap-input100 validate-input input-group" id="Password-toggle">
-                                            <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                            <a class="input-group-text bg-white text-muted">
                                                 <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
                                             </a>
-                                            <input class="input100 border-start-0 form-control ms-0"
-                                                wire:model.lazy='password' name="password" type="password"
+                                            <input
+                                                class="input100 border-start-0 @error('password') is-invalid @enderror form-control ms-0"
+                                                wire:model.defer='password' name="password" type="password"
                                                 placeholder="Password">
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert"><strong>{{ $message
+                                                    }}</strong></span>
+                                            @enderror
                                         </div>
                                         <div class="text-end pt-4">
                                             <p class="mb-0"><a href="#" class="text-primary ms-1">Forgot Password?</a>
                                             </p>
                                         </div>
-                                        {{-- @if (session()->has('error_message'))
-                                        <label style="color: #ff0000">{{session('error_message')}}</label>
-                                        @endif --}}
                                         <div class="container-login100-form-btn">
                                             <button type="submit" class="login100-form-btn btn-primary">
                                                 Login

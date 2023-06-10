@@ -34,6 +34,8 @@
     <link href="{{asset('assets/switcher/css/switcher.css')}}" rel="stylesheet">
     <link href="{{asset('assets/switcher/demo.css')}}" rel="stylesheet">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <livewire:styles />
 
 </head>
@@ -77,8 +79,17 @@
     <script src="{{asset('assets/switcher/js/switcher.js')}}"></script>
 
     <livewire:scripts />
-    ...
-    @livewireScripts
+
+    <script>
+        window.livewire.on('alertSuccess', (message) => {
+            Swal.fire({
+                title: message,
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+        })
+    
+    </script>
 
 </body>
 

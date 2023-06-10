@@ -2,29 +2,33 @@
 
 namespace App\Http\Livewire;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 use Livewire\Component;
 
 class Login extends Component
 {
-    public $email;
-    public $password;
+    public $email, $password;
 
     public function submit()
     {
         $this->validate([
-            'email' => 'required|string',
+            'email' => 'required|string|email|exists:users,email',
             'password' => 'required',
         ]);
-        $credentials = [
-            'email' => $this->email,
-            'password' => $this->password,
-        ];
-        if (Auth::attempt($credentials)) {
-            return redirect(route('home'));
+
+        $user = User::where('email', $this->email)->first();
+        if ($user) {
+            if (Hash::check($this->password, $user->password)) {
+                auth()->login($user);
+                return redirect()->route('home');
+            } else {
+                $this->addError('password', 'password is invalid');
+            }
+        } else {
+            $this->addError('email', 'Email not found');
         }
-        session()->flash('error_message', 'email or password is wrong 😟');
     }
 
     public function render()
